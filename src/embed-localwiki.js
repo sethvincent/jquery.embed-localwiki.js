@@ -8,15 +8,25 @@
 
 (function($) {
 
-  $.embedLocalWiki = function(options) {
-    options = $.extend({}, $.embedLocalWiki.options, options);
+  $.fn.embedLocalWiki = function(options) {
+    options = $.extend({}, $.fn.embedLocalWiki.options, options);
+    options.el = this;
+    console.log("this", this);
+    console.log("options", options);
     if (options.embedType === 'page') {
       getPage(options);
+    } else if (options.embedType === 'list') {
+      getPageList(options);
+    } else if (options.embedType === 'map') {
+      getMap(options)
+    } else if (options.embedType === 'stats') {
+      getStats(options)
+    } else {
+
     }
   };
 
-  $.embedLocalWiki.options = {
-    el: '#localwiki',
+  $.fn.embedLocalWiki.options = {
     wikiUrl: '',
     embedType: 'page',
     pageName: '',
@@ -47,7 +57,29 @@
     });
   }
 
-  function getPages(options) { /* todo */ }
+  function getPageList(options) {
+    $.ajax({
+      url: options.wikiUrl + '/api/page/',
+      data: {
+        limit: options.limit,
+        offset: options.offset,
+        page_tags__tags__slug: options.tag.replace(/\s/g , "_")
+      },
+      dataType: 'jsonp'
+    }).done(function ( data ){
+      if (options.done) {
+        options.done(data);
+      } else {
+        console.log(data)
+        $(options.el).append("<section class='localwiki'><h1 class='localwiki-name'>" + options.tag + "</h1></section>");
+        $(data.objects).each(function(i, item){
+          console.log(i, item);
+          $(".localwiki").append("<h3>" + item.name + "</h3>");
+          $(".localwiki").append("<div>" + item.content + "</div>");
+        });        
+      }
+    });
+  }
 
   function getMap(options) { /* todo */ }
 
