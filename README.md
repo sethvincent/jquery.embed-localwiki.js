@@ -5,8 +5,8 @@ jQuery plugin for embedding LocalWiki pages and maps.
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.github.com/seth/jquery.embed-localwiki.js/master/dist/embed-localwiki.min.js
-[max]: https://raw.github.com/seth/jquery.embed-localwiki.js/master/dist/embed-localwiki.js
+[min]: https://raw.github.com/sethvincent/jquery.embed-localwiki.js/master/dist/embed-localwiki.min.js
+[max]: https://raw.github.com/sethvincent/jquery.embed-localwiki.js/master/dist/embed-localwiki.js
 
 In your web page:
 
@@ -14,9 +14,12 @@ In your web page:
 <script src="jquery.js"></script>
 <script src="dist/embed-localwiki.min.js"></script>
 <script>
-jQuery(function($) {
-  $.awesome(); // "awesome"
-});
+// embed a page
+$.embedLocalWiki({
+  wikiUrl: 'http://seattlewiki.net',
+  embedType: 'page',
+  pageName: 'pizza'
+})
 </script>
 ```
 

@@ -1,11 +1,6 @@
-/*
- * embed-localwiki
- * https://github.com/seth/jquery.embed-localwiki.js
- *
- * Copyright (c) 2013 sethvincent
- * Licensed under the MIT license.
- */
-
+/*! Embed Localwiki - v0.1.0 - 2013-04-11
+* https://github.com/sethvincent/jquery.embed-localwiki.js
+* Copyright (c) 2013 sethvincent; Licensed MIT */
 (function($) {
 
   $.embedLocalWiki = function(options) {
