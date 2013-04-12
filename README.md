@@ -17,12 +17,11 @@ In your web page:
 <script src="dist/embed-localwiki.min.js"></script>
 <script>
 // embed a page
-$.embedLocalWiki({
+$("#localwiki").embedLocalWiki({
   wikiUrl: 'http://seattlewiki.net',
   embedType: 'page',
-  pageName: 'pizza',
-  el: '#localwiki'
-})
+  pageName: 'pizza'
+});
 </script>
 ```
 
