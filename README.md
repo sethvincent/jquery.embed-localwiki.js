@@ -8,8 +8,7 @@ Download the [production version][min] or the [development version][max].
 [min]: https://raw.github.com/sethvincent/jquery.embed-localwiki.js/master/dist/embed-localwiki.min.js
 [max]: https://raw.github.com/sethvincent/jquery.embed-localwiki.js/master/dist/embed-localwiki.js
 
-In your web page:
-
+### Embed a page:
 ```html
 <div id="localwiki"></div>
 
@@ -25,11 +24,14 @@ $("#localwiki").embedLocalWiki({
 </script>
 ```
 
-## Documentation
-_(Coming soon)_
-
-## Examples
-_(Coming soon)_
+### embed a list of pages with a certain tag:
+```javascript
+$("#localwiki").embedLocalWiki({
+  wikiUrl: 'http://seattlewiki.net',
+  embedType: 'list',
+  tag: 'pizza'
+});
+```
 
 ## Release History
 _(Nothing yet)_
