@@ -11,6 +11,8 @@ Download the [production version][min] or the [development version][max].
 In your web page:
 
 ```html
+<div id="localwiki"></div>
+
 <script src="jquery.js"></script>
 <script src="dist/embed-localwiki.min.js"></script>
 <script>
@@ -18,7 +20,8 @@ In your web page:
 $.embedLocalWiki({
   wikiUrl: 'http://seattlewiki.net',
   embedType: 'page',
-  pageName: 'pizza'
+  pageName: 'pizza',
+  el: '#localwiki'
 })
 </script>
 ```
